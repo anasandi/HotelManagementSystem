@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap-4.2.1-dist/css/bootstrap.min.css"
+          th:href="@{/bootstrap-4.2.1-dist/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" href="../../static/bootstrap-4.2.1-dist/css/custom.css"
+          th:href="@{/bootstrap-4.2.1-dist/css/custom.css}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+          crossorigin="anonymous"/>
+</head>
+<body>
+        <div class="container-fluid m-0" id="head-image" style="position: relative; height:100vh;">
+            <div class="navbar navbar-expand-md fixed ">
+                <h3 class="text-white justify-content-start col ml-3">
+                    <a href="#" th:href="@{/home}" class="text-light">Delux</a></h3>
+                <ul class="nav justify-content-end">
+                    <li class="nav-item col">
+                        <a class="nav-link active text-white mx-3" href="#" th:href="@{/view/rooms}">Hotel Room</a>
+                    </li>
+                    <!--li class="nav-item ">
+                        <a class="nav-link active text-white mx-3" href="#" th:href="@{/room}">New Room</a>
+                    </li-->
+                    <!--li class="nav-item ">
+                        <a class="nav-link active text-white mx-3" href="#">Link</a>
+                    </li-->
+                    <!--li class="nav-item ">
+                        <a class="nav-link active text-white mx-3" href="#">Disabled</a>
+                    </li-->
+                  <li sec:authorize="!isAuthenticated()" class="nav-item">
+            <a class="btn btn-outline-light mx-3" th:href="@{/login}">Login</a>
+        </li>
+        <li class="nav-link" sec:authorize="isAuthenticated()">
+                    <form action="#" th:action="@{/logout}" method="post">
+                        <button class="btn btn-outline-light  sec:authentication="name""><i class="fa fa-sign-out-alt" aria-hidden="true"></i>Logout</button>
+                    </form>
+                </li>
+                </ul>
+
+            </div>
+        </div>
+
+
+    <div class="caption">
+        <h1 class=" text-white">Welcome To Deluxe</h1>
+        <p class=" text-center text-white">Hotels &amp; Resorts</p>
+    </div>
+
+
+    <div layout:fragment="view">
+
+
+<section class="pt-5">
+    <div th:if="${booking}" class="alert alert-danger" role="alert" >
+        <p>Successfully booking <span th:text="${bookingNumber}"></span></p>
+
+    </div>
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-5">
+                <img src="../../static/images/image5.jpg" th:src="@{/images/image5.jpg}" alt="" width="400px" height="500px">
+            </div>
+            <div class="col md-7 ">
+                <div>
+                    <h3 class="text-center text-info">Welcome to Deluxe Hotel</h3>
+                    <h5 class="text-center text-muted">Welocme to Our hotel</h5>
+                </div>
+                <div>
+                    <p>On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                    <p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+                </div>
+                <div class="row mt-md-3">
+                    <span> <i class=" fab fa-twitter mr-md-3 ml-md-3"></i></span>
+                    <span> <i class=" fab fa-facebook mr-md-3 ml-md-3"></i></span>
+                    <span> <i class=" fab fa-google-plus mr-md-3 ml-md-3"></i></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3">
+                    <h4 class="text-info text-center my-4">Front Desk
+                        <p>  <i class="fas fa-desktop fa-3x"></i></p>
+                    </h4>
+                    <p>A small river named Duden flows by their place and supplies.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="text-info text-center my-4">Restaurant Bar
+                        <p>  <i class="fas fa-utensils fa-3x"></i></p>
+                    </h4>
+                    <p>A small river named Duden flows by their place and supplies.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="text-info text-center  my-4">Transfer Services
+                        <p>  <i class="fas fa-taxi fa-3x"></i></p>
+                    </h4>
+                    <p>A small river named Duden flows by their place and supplies.</p>
+                </div>
+                <div class="col-md-3">
+                    <h4 class="text-info text-center  my-4">Spa Suites
+                        <p>  <i class="fas fa-spa fa-3x"></i></p>
+                    </h4>
+                    <p>A small river named Duden flows by their place and supplies.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+     <section>
+         <div class="container">
+       
+             <div class=" bg-light" style="width: 100%;height: 300px" >
+                 <p class="text-dark d-flex justify-content-center" style="line-height: 270px;font-family: monospace;font-size: xx-large">Our Rooms</p>
+             </div>
+
+             <div class="row my-4">
+             <h1>Hello</h1>
+             <div class="col-md-4" th:each="room:${rooms}">
+                     <div class="card" style="width: 18rem;">
+                         <img th:src="${room.PhotosImagePath}" >
+                         <div class="card-body">
+                             <p class="card-text" th:text="${'Room Number:'+room.roomsNumber}"></p>
+                              <p class="card-text" th:text="${'Room Type:'+room.roomType}"></p>
+                              <p class="card-text" th:text="${'Room status'+room.roomStatus}"></p>
+                              <a href="#" th:href="@{'/view/rooms/'+${room.id}}" class="btn btn-primary btn-sm">Go Deatils</a>a>
+                         </div>
+                     </div>
+                 </div>
+             
+                 <!--div class="col-md-4">
+                     <div class="card" style="width: 18rem;">
+                         <img class="card-img-top" src="../../static/images/100.jpeg" th:src="@{/images/100.jpeg}" alt="Card image cap">
+                         <div class="card-body">
+                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             <a href="#" th:href="@{/room/2}" class="btn btn-primary btn-sm">Go Details</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="card" style="width: 18rem;">
+                         <img class="card-img-top" src="../../static/images/101.jpeg" th:src="@{/images/101.jpeg}" alt="Card image cap">
+                         <div class="card-body">
+                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Details</a>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-md-4">
+                     <div class="card" style="width: 18rem;">
+                         <img class="card-img-top" src="../../static/images/102.jpeg" th:src="@{/images/102.jpeg}"alt="Card image cap">
+                         <div class="card-body">
+                             <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                             <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Details</a>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+                 <div class="row">
+                  <div class="col-sm-8"-->
+                   <!--img src="../../static/images/100.jpeg" th:src="@{'/images/'+${room.getRoomsNumber()}+'.jpeg'}" class="rounded img-fluid"-->
+                
+               <!--/div-->
+                     <!--div class="col-md-4">
+                         <div class="card" style="width: 18rem;">
+                             <img class="card-img-top" src="../../static/images/103.jpeg" th:src="@{/images/103.jpeg}" alt="Card image cap">
+                             <div class="card-body">
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                 <a href="#" th:href="@{/room/9}" class="btn btn-primary btn-sm">Go Details</a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-md-4">
+                         <div class="card" style="width: 18rem;">
+                             <img class="card-img-top" src="../../static/images/105.jpeg" th:src="@{/images/105.jpeg}" alt="Card image cap">
+                             <div class="card-body">
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                 <a href="#" th:href="@{/room/6}" class="btn btn-primary btn-sm">Go Details</a>
+                             </div>
+                         </div>
+                     </div>
+                     <div class="col-md-4">
+                         <div class="card" style="width: 18rem;">
+                             <img class="card-img-top" src="../../static/images/105.jpeg" th:src="@{/images/106.jpeg}"alt="Card image cap">
+                             <div class="card-body">
+                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                 <a href="#" th:href="@{/room/7}" class="btn btn-primary btn-sm">Go Details</a>
+                             </div>
+                         </div>
+                     </div-->
+
+             </div>
+
+             <!--/div-->
+
+
+     </section>
+
+    </div>
+
+</body>
+</html>

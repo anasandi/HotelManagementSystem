@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/viewlayout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div layout:fragment="view">
+<h1 class="text-center my-4">Booking Form</h1>
+    <form action="#" th:action="@{/view/booking} " th:object="${booking}" method="post">
+
+        <div class="form-group row mt-5">
+            <label for="children" class="col-sm-2 col-form-label">Number Of Children</label>
+            <div class="col-sm-10">
+                <input type="number" th:field="*{numberOfChildren}" id="children" class="form-control" placeholder="Number Of Children">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="adults" class="col-sm-2 col-form-label">Number Of Adults</label>
+            <div class="col-sm-10">
+                <input type="number" th:field="*{numberOfAdults}" id="adults" class="form-control" placeholder="Number Of Adults">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="start" class="col-sm-2 col-form-label">Check in</label>
+            <div class="col-sm-10">
+                <input type="date" th:field="*{fromStart}" min="2021-04-17" id="start" class="form-control" placeholder="From Start">
+            </div>
+            <!--div class="input-group">
+     <span class="input-group-addon"><i class="fa fa-calendar" aria-hidden="true"></i></span>
+     <input type="date"  id="txtDate" required="Required" class="form-control" name="txtDate" placeholder="Select suitable date" />
+    </div-->
+        </div>
+        <div class="form-group row">
+            <label for="toend" class="col-sm-2 col-form-label">Check out</label>
+            <div class="col-sm-10">
+                <input type="date" th:field="*{toEnd}"min="2021-04-17" id="toend" class="form-control" placeholder="From End">
+            </div>
+        </div>
+
+        <div class="form-check row">
+            <label class="form-check-label col-sm-2">
+                <input type="checkbox" class="form-check-input" name="bookingCancelled" id="cancel" th:field="*{bookingCancelled}"  value="caheckvalue">
+            </label>
+        </div>
+        <!--div class="form-group row">
+            <label for="advance" class="col-sm-2 col-form-label">In Advance</label>
+            <div class="col-sm-10">
+                <input type="number" step="any" th:field="*{inAdvance}" id="advance" class="form-control" placeholder="Advance">
+            </div>
+        </div-->
+        <button type="submit" class="btn btn-primary ml-5">Submit</button>
+            <a href="#" class="btn btn-primary" th:href="@{/home}">Cancel</a>
+
+     
+
+    </form>
+
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.min.js"></script>
+	<script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+	<script type="text/javascript">
+   var today = new Date().toISOString().split('T')[0];
+document.getElementsByName("start")[0].setAttribute('min', today);
+</script>
+</body>
+</html>

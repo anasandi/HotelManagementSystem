@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+   <div layout:fragment="admin">
+         <div class="container">
+              <div class="row ">
+                 <div class="col-sm-3 " th:each="booklist:${bookinglists}">
+                      <div class="card  my-4" style="width: 18rem;" >
+                          <div class="card-header text-muted text-center">Room</div>
+                          <div class="card-body" >
+
+                                <p class="card-text" th:text="${'Booking Number:'+booklist.bookingNumber}"></p>
+                               <p class="card-text" th:text="${'Number of Adults:'+booklist.numberOfAdults}"></p>
+                               <p class="card-text" th:text="${'Number of children'+booklist.numberOfChildren}"></p>
+                               <p class="card-text" th:text="${'Chcekin'+booklist.fromStart}"></p>
+                                <p class="card-text" th:text="${'Checkout'+booklist.toEnd}"></p>
+                                <p class="card-text" th:text="${'First Name'+booklist.userProfile.firstName}"></p>
+                                <p class="card-text" th:text="${'Last Name'+booklist.userProfile.lastName}"></p>
+                           </div>
+                      </div>
+                  </div>
+                  <!--div class="col-sm-3 " th:each="booklist:${bookinglists}"-->
+                      
+                          <!--div class="card-header text-muted text-center">User Booking List</div>
+                          <div class="card-body" >
+
+                               <p class="card-text" th:text="${'Booking Number:'+booklist.bookingNumber}"></p>
+                               <p class="card-text" th:text="${'Room Type:'+booklist.numberOfAdults}"></p>
+                               <p class="card-text" th:text="${'Room status'+booklist.numberOfChildren}"></p>
+                               <p class="card-text" th:text="${'Room status'+booklist.fromStart}"></p>
+                                <p class="card-text" th:text="${'Room status'+booklist.toEnd}"></p>
+                                <p class="card-text" th:text="${'Room status'+booklist.userProfile.firstName}"></p>
+                               <!--p class="card-text" th:text="${booklist.rooms.roomsNumber}"></p-->
+                             
+                
+                           <!--/div-->
+                           
+                   
+                  </div>
+              </div>
+               <a href="#" th:href="@{/bookinglistreport/pdf}" class="btn btn-primary">PDF Report</a>
+         </div>
+   </div>
+
+   
+</body>
+</html>
